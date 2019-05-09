@@ -3,11 +3,13 @@ import Nav from "../../components/Nav/Nav";
 import styled from "styled-components";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
+import Auth from "../../components/Auth/Auth";
 class Home extends Component {
   render() {
     return (
       <div>
         {/* <Nav /> */}
+        {/* <Auth /> */}
         <Banner />
         <Feature>
           <Link to="/bikes">
