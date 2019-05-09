@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default class Nav extends Component {
   render() {
@@ -8,10 +9,26 @@ export default class Nav extends Component {
         <Wrapper>
           <Logo />
           <NavBar>
-            <div>Men</div>
-            <div>Women</div>
-            <div>Kids</div>
-            <div>Bikes</div>
+            <Link to="/men">
+              {" "}
+              <div>Men</div>
+            </Link>
+            <Link to="/women">
+              {" "}
+              <div>Women</div>
+            </Link>
+            <Link to="/kids">
+              {" "}
+              <div>Kids</div>
+            </Link>
+            <Link to="/bikes">
+              {" "}
+              <div>Bikes</div>
+            </Link>
+            <Link to="/acessory">
+              {" "}
+              <div>Acessory</div>{" "}
+            </Link>
           </NavBar>
         </Wrapper>
       </div>

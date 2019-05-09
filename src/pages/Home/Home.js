@@ -7,7 +7,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <Banner />
         <Feature>
           <Link to="/bikes">
