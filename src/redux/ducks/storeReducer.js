@@ -15,11 +15,11 @@ const initialState = {
 };
 export default function storeReducer(state = initialState, action) {
 	switch (action.type) {
-		case "GET_ALL_PRODUCTS_PENDING":
+		case `${GET_ALL_PRODUCTS}_PENDING`:
 			return { ...state };
-		case "GET_ALL_PRODUCTS_FULFILLED":
+		case `${GET_ALL_PRODUCTS}_FULFILLED`:
 			return { ...state, items: action.payload.data };
-		case "GET_ALL_PRODUCTS_REJECTED":
+		case `${GET_ALL_PRODUCTS}_REJECTED`:
 			return { ...state };
 		default:
 			return console.log(state);
