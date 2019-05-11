@@ -5,13 +5,12 @@ import styled from "styled-components";
 import { Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Sale.css";
+import { Link } from "react-router-dom";
 class Sale extends Component {
 	componentDidMount() {
 		this.props.getBikes();
 	}
-	goToProduct = id => {
-		this.props.history.push("/product/" + id);
-	};
+
 	render() {
 		console.log(this.props.userReducer);
 		let { items } = this.props.userReducer;
@@ -22,18 +21,12 @@ class Sale extends Component {
 			.slice(-3)
 			.map(i => {
 				return (
-					<div
-						onClick={() => this.goToProduct(i.id)}
-						key={i.id}
-						className="img_card"
-					>
-						<div className="welp">
-							<Cards>
-								<p>{i.name}</p>
-								<img src={i.picture} class="salePicture" />
-								<p>{i.price}</p>
-							</Cards>
-						</div>
+					<div className="welp">
+						<Cards>
+							<p>{i.name}</p>
+							<img src={i.picture} class="salePicture" />
+							<p>{i.price}</p>
+						</Cards>
 					</div>
 				);
 			});

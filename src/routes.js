@@ -18,25 +18,6 @@ export default (
 		<Route component={Kids} path="/kids" />
 		<Route component={Acessory} path="/acessory" />
 		<Route component={Sale} path="/sale" />
-		<Route
-			exact
-			path="/Product/:id"
-			component={connect(state => state)(props => {
-				let {
-					items,
-					match: {
-						params: { id }
-					}
-				} = props;
-				if (items.length) {
-					return (
-						<Product product={items.find(c => +c.id === +id)} {...props} />
-					);
-				}
-				// else {
-				// 	return <CircularProgress />;
-				// }
-			})}
-		/>
+		<Route component={Product} path="/product/:id" />
 	</Switch>
 );
