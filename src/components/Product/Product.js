@@ -38,10 +38,10 @@ class Product extends React.Component {
 export default Product;
 
 const Cards = styled.div`
-	max-width: 400px;
-	height: 300px;
+	max-width: 600px;
+	height: 600px;
 	transition: 0.3s;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 	&:hover {
 		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);

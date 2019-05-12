@@ -27,7 +27,7 @@ export default class Nav extends Component {
 							{" "}
 							<div>Bikes</div>
 						</Link>
-						<Link to="/acessory">
+						<Link to="/">
 							{" "}
 							<div>Acessory</div>{" "}
 						</Link>
