@@ -9,6 +9,12 @@ export function getBikes() {
 	};
 }
 
+// export function getYourProduct(){
+// 	return{
+// 		type:
+// 	}
+// }
+
 const initialState = {
 	items: [],
 	error: ""

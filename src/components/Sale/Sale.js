@@ -2,17 +2,20 @@ import React, { Component } from "react";
 import { getBikes } from "../../redux/ducks/userReducer";
 import axios from "axios";
 import styled from "styled-components";
-import { Route, withRouter } from "react-router-dom";
+import { BrowserRouter, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Sale.css";
 import { Link } from "react-router-dom";
 class Sale extends Component {
+	constructor(props) {
+		super(props);
+	}
 	componentDidMount() {
 		this.props.getBikes();
 	}
 
 	render() {
-		console.log(this.props.userReducer);
+		console.log(this.props);
 		let { items } = this.props.userReducer;
 
 		console.log(items);
@@ -21,12 +24,14 @@ class Sale extends Component {
 			.slice(-3)
 			.map(i => {
 				return (
-					<div className="welp">
-						<Cards>
-							<p>{i.name}</p>
-							<img src={i.picture} class="salePicture" />
-							<p>{i.price}</p>
-						</Cards>
+					<div className="welp" key={i.id}>
+						<Link to={`product/${i.id}`}>
+							<Cards>
+								<p>{i.name}</p>
+								<img src={i.picture} class="salePicture" />
+								<p>{i.price}</p>
+							</Cards>
+						</Link>
 					</div>
 				);
 			});
