@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 class Bikes extends Component {
+  addToCartHandler() {}
   render() {
     return <div>Bikes</div>;
   }
