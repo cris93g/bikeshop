@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components";
+import "./Product";
 class Product extends React.Component {
 	constructor(props) {
 		super(props);
@@ -24,7 +25,7 @@ class Product extends React.Component {
 				<div>
 					<Cards>
 						<p>{pro.name}</p>
-						<img src={pro.picture} class="salePicture" />
+						<img src={pro.picture} className="ProductPic" />
 						<p>{pro.price}</p>
 						<p>{pro.description}</p>
 					</Cards>
@@ -38,12 +39,6 @@ class Product extends React.Component {
 export default Product;
 
 const Cards = styled.div`
-	max-width: 600px;
-	height: 600px;
-	transition: 0.3s;
-	box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
-	cursor: pointer;
-	&:hover {
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-	}
+	max-width: 500px;
+	height: 500px;
 `;

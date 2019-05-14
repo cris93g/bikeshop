@@ -7,9 +7,6 @@ export default class Nav extends Component {
 		return (
 			<div>
 				<Wrapper>
-					<Logo>
-						<Auth />
-					</Logo>
 					<NavBar>
 						<Link to="/men">
 							{" "}
@@ -32,6 +29,10 @@ export default class Nav extends Component {
 							<div>Acessory</div>{" "}
 						</Link>
 					</NavBar>
+					<IconBar />
+					<Logo>
+						<Auth />
+					</Logo>
 				</Wrapper>
 			</div>
 		);
@@ -52,11 +53,16 @@ const NavBar = styled.section`
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	margin: auto;
-	width: 80%;
+	width: 30%;
 `;
 const Logo = styled.section`
-	width: 20%;
+	width: 10%;
 	margin: auto;
 	display: flex;
 	justify-content: space-around;
+`;
+
+const IconBar = styled.section`
+	margin: auto;
+	width: 45%;
 `;
