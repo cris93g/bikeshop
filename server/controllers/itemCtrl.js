@@ -1,3 +1,4 @@
+var stripe = require("stripe")("sk_test_iIp2MFjxeCHyGo8QIh62tmdb00bLbrutvv");
 module.exports = {
   getBikes(req, res) {
     const db = req.app.get("db");
@@ -29,5 +30,24 @@ module.exports = {
     db.getKid()
       .then(results => res.status(200).json(results))
       .catch(console.log);
+  },
+  /*stripe*/
+  checkout(req, res) {
+    const { token, total } = req.body;
+    const stripePayload = {
+      amount: Math.round(Number(total) * 100),
+      currency: "usd",
+      description: "Deliveroo Charge",
+      source: token,
+      statement_descriptor: "Somehting somehting"
+    };
+    const charge = stripe.charges.create(stripePayload);
+    charge
+      .then(data => {
+        res.sendStatus(200);
+      })
+      .catch(e => {
+        res.status(e.statusCode).send(e.message);
+      });
   }
 };

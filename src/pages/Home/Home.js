@@ -45,19 +45,18 @@ const Banner = styled.section`
 
 const Feature = styled.section`
   margin: auto;
+  padding-top: -20px;
   width: 80%;
   height: 40vh;
-
   display: flex;
   justify-content: space-around;
 `;
 
 const Collection = styled.section`
-  margin-top: 20px;
+  margin-top: 40px;
   margin: auto;
   width: 80%;
   height: 40vh;
-
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;

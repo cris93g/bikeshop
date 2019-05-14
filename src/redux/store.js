@@ -7,8 +7,8 @@ import storeReducer from "./ducks/storeReducer";
 const middleware = applyMiddleware(promiseMiddleWare);
 
 const combinedReducers = combineReducers({
-	userReducer
-	// storeReducer
+  userReducer
+  //   storeReducer
 });
 
 const store = createStore(combinedReducers, middleware);

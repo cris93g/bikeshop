@@ -4,7 +4,8 @@ const {
   getMyProduct,
   getMensBikes,
   getWomensBikes,
-  getKidsBikes
+  getKidsBikes,
+  checkout
 } = require("../controllers/itemCtrl");
 
 //state each route
@@ -14,4 +15,5 @@ module.exports = app => {
   app.get("/api/mens", getMensBikes);
   app.get("/api/womens", getWomensBikes);
   app.get("api/kids", getKidsBikes);
+  app.post("/api/checkout", checkout);
 };

@@ -1,59 +1,73 @@
 import axios from "axios";
 
+const SET_TOTAL = "SET_TOTAL";
 const GET_USER = "GET_USER";
 const LOG_OUT = "LOG_OUT";
 const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
+
 export function getUser() {
-	return {
-		type: GET_USER,
-		payload: axios.get("/me")
-	};
+  return {
+    type: GET_USER,
+    payload: axios.get("/me")
+  };
 }
 export function logout() {
-	return {
-		type: LOG_OUT,
-		payload: axios.get("/logout")
-	};
+  return {
+    type: LOG_OUT,
+    payload: axios.get("/logout")
+  };
 }
 export function getBikes() {
-	return {
-		type: GET_ALL_PRODUCTS,
-		payload: axios.get(`/api/bikes`)
-	};
+  return {
+    type: GET_ALL_PRODUCTS,
+    payload: axios.get(`/api/bikes`)
+  };
 }
+
+// export function setTotal(total) {
+//   return { type: SET_TOTAL, payload: total };
+// }
+const setTotal = (state, payload) => {
+  const newState = {};
+  Object.assign(newState, state, { total: payload });
+  return newState;
+};
 const initialState = {
-	user: [],
-	isAuthed: false,
-	items: []
+  user: [],
+  isAuthed: false,
+  items: [],
+  total: 0
 };
 
 export default function userReducer(state = initialState, action) {
-	switch (action.type) {
-		case `${GET_USER}_FULFILLED`:
-			return {
-				...state,
-				user: action.payload.data,
-				isAuthed: true
-			};
-		case `${GET_USER}_REJECTED`:
-			return {
-				...state,
-				isAuthed: false
-			};
+  switch (action.type) {
+    case SET_TOTAL:
+      return setTotal(state, action.payload);
+    case `${GET_USER}_FULFILLED`:
+      return {
+        ...state,
+        user: action.payload.data,
+        isAuthed: true
+      };
+    case `${GET_USER}_REJECTED`:
+      return {
+        ...state,
+        isAuthed: false
+      };
 
-		case `${LOG_OUT}_FULFILLED`:
-			return {
-				...state,
-				user: action.payload.data,
-				isAuthed: true
-			};
-		case `${GET_ALL_PRODUCTS}_PENDING`:
-			return { ...state };
-		case `${GET_ALL_PRODUCTS}_FULFILLED`:
-			return { ...state, items: action.payload.data };
-		case `${GET_ALL_PRODUCTS}_REJECTED`:
-			return { ...state };
-		default:
-			return state;
-	}
+    case `${LOG_OUT}_FULFILLED`:
+      return {
+        ...state,
+        user: action.payload.data,
+        isAuthed: true
+      };
+    case `${GET_ALL_PRODUCTS}_PENDING`:
+      return { ...state };
+    case `${GET_ALL_PRODUCTS}_FULFILLED`:
+      return { ...state, items: action.payload.data };
+    case `${GET_ALL_PRODUCTS}_REJECTED`:
+      return { ...state };
+    default:
+      return state;
+  }
 }

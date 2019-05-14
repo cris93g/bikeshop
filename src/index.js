@@ -4,10 +4,13 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { HashRouter } from "react-router-dom";
+import { StripeProvider } from "react-stripe-elements";
 
 ReactDOM.render(
   <HashRouter>
-    <App />
+    <StripeProvider apiKey="pk_test_72kjD4EsnaIYgAI35UOFKVNV002Wy6xCIg">
+      <App />
+    </StripeProvider>
   </HashRouter>,
   document.getElementById("root")
 );
